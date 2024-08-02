@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- Define the appender for the specific file -->
+    <appender name="CUSTOM_LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/transactions.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/specific-class.%d{yyyy-MM-dd_HH-mm}.log</fileNamePattern>
+            <maxHistory>10</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Define the logger for the specific class -->
+    <logger name="com.example.PaymentSystem.Service.TransactionService" level="INFO" additivity="false">
+        <appender-ref ref="CUSTOM_LOG_FILE" />
+    </logger>
+
+    <!-- Console appender for other logs -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Root logger configuration -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+    </root>
+
+</configuration>

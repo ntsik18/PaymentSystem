@@ -1,0 +1,8 @@
+2024-08-02 14:21:27 [http-nio-8080-exec-3] INFO  c.e.P.Service.TransactionService - Starting payment process for transaction request: com.example.PaymentSystem.DTO.TransactionRequest@241f9c8a
+2024-08-02 14:21:27 [http-nio-8080-exec-3] INFO  c.e.P.Service.TransactionService - Authenticated user: com.example.PaymentSystem.Model.User@751859a
+2024-08-02 14:21:28 [http-nio-8080-exec-3] INFO  c.e.P.Service.TransactionService - Product found mobile balance
+2024-08-02 14:21:28 [http-nio-8080-exec-3] INFO  c.e.P.Service.TransactionService - Validating transaction amount for product
+2024-08-02 14:21:28 [http-nio-8080-exec-3] INFO  c.e.P.Service.TransactionService - Transaction is in progress
+2024-08-02 14:21:28 [http-nio-8080-exec-3] INFO  c.e.P.Service.TransactionService - Transaction status set to Completed: Transaction{id=null, amount=1.00, paymentMethod=CASH, status=Completed, transactionDate=2024-08-02T14:21:28.022623}
+2024-08-02 14:21:28 [http-nio-8080-exec-3] INFO  c.e.P.Service.TransactionService - Transaction saved
+2024-08-02 14:21:28 [http-nio-8080-exec-3] INFO  c.e.P.Service.TransactionService - Transaction response created: com.example.PaymentSystem.DTO.TransactionResponse@136f78bb

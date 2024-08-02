@@ -1,0 +1,82 @@
+2024-08-01 18:22:42 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-08-01 18:22:42 INFO  c.e.P.PaymentSystemApplication - Starting PaymentSystemApplication using Java 21.0.1 with PID 4603 (/Users/os/Desktop/OPPA/PaymentSystem/target/classes started by os in /Users/os/Desktop/OPPA/PaymentSystem)
+2024-08-01 18:22:42 INFO  c.e.P.PaymentSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2024-08-01 18:22:43 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-01 18:22:43 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 92 ms. Found 3 JPA repository interfaces.
+2024-08-01 18:22:44 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-08-01 18:22:44 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-08-01 18:22:44 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-08-01 18:22:44 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-01 18:22:44 INFO  o.a.c.c.C.[.[localhost].[/pay] - Initializing Spring embedded WebApplicationContext
+2024-08-01 18:22:44 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2432 ms
+2024-08-01 18:22:44 INFO  com.zaxxer.hikari.HikariDataSource - PaymentSystem - Starting...
+2024-08-01 18:22:45 INFO  com.zaxxer.hikari.pool.HikariPool - PaymentSystem - Added connection conn0: url=jdbc:h2:mem:PaymentSystem user=SA
+2024-08-01 18:22:45 INFO  com.zaxxer.hikari.HikariDataSource - PaymentSystem - Start completed.
+2024-08-01 18:22:45 INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:PaymentSystem'
+2024-08-01 18:22:45 DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-08-01 18:22:45 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-01 18:22:45 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-08-01 18:22:45 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-08-01 18:22:45 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-01 18:22:47 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-01 18:22:47 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-01 18:22:47 INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2024-08-01 18:22:47 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2024-08-01 18:22:47 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-01 18:22:48 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-08-01 18:22:48 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/pay'
+2024-08-01 18:22:48 INFO  c.e.P.PaymentSystemApplication - Started PaymentSystemApplication in 6.905 seconds (process running for 7.673)
+2024-08-01 18:22:54 INFO  o.a.c.c.C.[.[localhost].[/pay] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-01 18:22:54 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-08-01 18:22:54 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2024-08-01 18:22:57 INFO  c.e.P.Service.TransactionService - Starting payment process for transaction request: com.example.PaymentSystem.DTO.TransactionRequest@5e20c542
+2024-08-01 18:22:57 INFO  c.e.P.Service.TransactionService - Authenticated user: com.example.PaymentSystem.Model.User@3fa8d615
+2024-08-01 18:22:57 INFO  c.e.P.Service.TransactionService - Product lookup result: Optional[com.example.PaymentSystem.Model.Product@7021b9e2]
+2024-08-01 18:22:57 INFO  c.e.P.Service.TransactionService - Transaction in progress: com.example.PaymentSystem.Model.Transaction@4754a263
+2024-08-01 18:22:57 INFO  c.e.P.Service.TransactionService - Product found and transaction status set to Completed.
+2024-08-01 18:22:57 INFO  c.e.P.Service.TransactionService - Transaction saved: com.example.PaymentSystem.Model.Transaction@4754a263
+2024-08-01 18:22:57 INFO  c.e.P.Service.TransactionService - Transaction response created: com.example.PaymentSystem.DTO.TransactionResponse@7c32a752
+2024-08-01 18:23:58 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-01 18:23:58 INFO  com.zaxxer.hikari.HikariDataSource - PaymentSystem - Shutdown initiated...
+2024-08-01 18:23:58 INFO  com.zaxxer.hikari.HikariDataSource - PaymentSystem - Shutdown completed.
+2024-08-01 18:24:31 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-08-01 18:24:31 INFO  c.e.P.PaymentSystemApplication - Starting PaymentSystemApplication using Java 21.0.1 with PID 4630 (/Users/os/Desktop/OPPA/PaymentSystem/target/classes started by os in /Users/os/Desktop/OPPA/PaymentSystem)
+2024-08-01 18:24:31 INFO  c.e.P.PaymentSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2024-08-01 18:24:32 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-01 18:24:33 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 89 ms. Found 3 JPA repository interfaces.
+2024-08-01 18:24:33 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-08-01 18:24:33 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-08-01 18:24:33 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-08-01 18:24:33 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-01 18:24:33 INFO  o.a.c.c.C.[.[localhost].[/pay] - Initializing Spring embedded WebApplicationContext
+2024-08-01 18:24:33 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2390 ms
+2024-08-01 18:24:34 INFO  com.zaxxer.hikari.HikariDataSource - PaymentSystem - Starting...
+2024-08-01 18:24:34 INFO  com.zaxxer.hikari.pool.HikariPool - PaymentSystem - Added connection conn0: url=jdbc:h2:mem:PaymentSystem user=SA
+2024-08-01 18:24:34 INFO  com.zaxxer.hikari.HikariDataSource - PaymentSystem - Start completed.
+2024-08-01 18:24:34 INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:PaymentSystem'
+2024-08-01 18:24:34 DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+2024-08-01 18:24:34 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-01 18:24:34 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-08-01 18:24:34 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-08-01 18:24:35 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-01 18:24:36 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-01 18:24:36 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-01 18:24:36 INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2024-08-01 18:24:36 WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2024-08-01 18:24:37 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-08-01 18:24:37 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-08-01 18:24:37 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/pay'
+2024-08-01 18:24:37 INFO  c.e.P.PaymentSystemApplication - Started PaymentSystemApplication in 6.846 seconds (process running for 7.615)
+2024-08-01 18:24:52 INFO  o.a.c.c.C.[.[localhost].[/pay] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-01 18:24:52 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-08-01 18:24:52 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2024-08-01 18:25:03 INFO  c.e.P.Service.TransactionService - Starting payment process for transaction request: com.example.PaymentSystem.DTO.TransactionRequest@4afb624e
+2024-08-01 18:25:03 INFO  c.e.P.Service.TransactionService - Authenticated user: com.example.PaymentSystem.Model.User@5a745d36
+2024-08-01 18:25:03 INFO  c.e.P.Service.TransactionService - Product lookup result: Optional[com.example.PaymentSystem.Model.Product@50db6092]
+2024-08-01 18:25:03 INFO  c.e.P.Service.TransactionService - Transaction in progress: com.example.PaymentSystem.Model.Transaction@50351646
+2024-08-01 18:25:03 INFO  c.e.P.Service.TransactionService - Product found and transaction status set to Completed.
+2024-08-01 18:25:03 INFO  c.e.P.Service.TransactionService - Transaction saved: com.example.PaymentSystem.Model.Transaction@50351646
+2024-08-01 18:25:03 INFO  c.e.P.Service.TransactionService - Transaction response created: com.example.PaymentSystem.DTO.TransactionResponse@3f340329
+2024-08-01 18:25:12 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-01 18:25:12 INFO  com.zaxxer.hikari.HikariDataSource - PaymentSystem - Shutdown initiated...
+2024-08-01 18:25:12 INFO  com.zaxxer.hikari.HikariDataSource - PaymentSystem - Shutdown completed.
