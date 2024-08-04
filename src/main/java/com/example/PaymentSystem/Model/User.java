@@ -1,6 +1,8 @@
 package com.example.PaymentSystem.Model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -21,13 +23,20 @@ public class User implements UserDetails, Principal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotBlank
     private String firstName;
+    @NotBlank
     private String lastName;
+    @NotBlank
     @Column(nullable = false, unique = true)
     private String email;
+    @NotBlank
     private String password;
+    @NotNull
     @Enumerated(EnumType.STRING)
     private Role role;
+
     @OneToMany(mappedBy = "user")
     private Set<Product> product;
 
@@ -37,7 +46,6 @@ public class User implements UserDetails, Principal {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-//        GrantedAuthority grantedAuthority=new SimpleGrantedAuthority(role.toString());
         return List.of(new SimpleGrantedAuthority(role.name()));
     }
 

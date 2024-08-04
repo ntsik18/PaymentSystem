@@ -11,11 +11,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.math.BigDecimal;
 
 @SpringBootApplication
 @RequiredArgsConstructor
+@EnableTransactionManagement
 public class PaymentSystemApplication {
     private final PasswordEncoder passwordEncoder;
 

@@ -23,23 +23,25 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class TransactionService {
+
     private static final Logger logger = LoggerFactory.getLogger(TransactionService.class);
-
-    //    private final Logger logger;
     private final TransactionRepository transactionRepository;
-    private final ProductRepository productRepository;
     private final TransactionMapper transactionMapper;
+    private final ProductRepository productRepository;
 
-    //The transaction will fail if the product does not exist in the db. In this case, the transaction will be saved in the db with the status FAILED.
-    //If cardDetails are not valid, or transaction amount is not within product's amount range,
-    //400 response will be returned to client with error message and transaction will not be saved in db;
+ /*
+  The transaction will fail if the product does not exist in the db;
+  In this case, the transaction will be saved in the db with the status FAILED.
+  If cardDetails are not valid, or transaction amount is not within the product's amount range,
+  a 400 response will be returned to the client with an error message and the transaction will not be saved in the db.
+*/
 
 
     public TransactionResponse pay(TransactionRequest transactionRequest, Authentication authentication) {
         logger.info("Starting payment process for transaction request: {}", transactionRequest);
         if (transactionRequest.getPaymentMethod().name().equals("CARD")) {
             transactionRequest.validate(); //return error to client if card details are omitted
-            validateCardExp(transactionRequest);
+            validateCardExp(transactionRequest);  //validate exp date
         }
         var user = (User) authentication.getPrincipal();
         logger.info("Authenticated user: {}", user);
@@ -48,7 +50,7 @@ public class TransactionService {
             handleInvalidProduct(transactionRequest, user);
         }
         Product product1 = product.get();
-        logger.info("Product found " + product1.getDescription());
+        logger.info("Product found: " + product1.getDescription());
 
         validateAmount(product1, transactionRequest);
         logger.info("Transaction is in progress");
@@ -68,25 +70,28 @@ public class TransactionService {
         BigDecimal minAmount = product.getMinAmount();
         BigDecimal maxAmount = product.getMaxAmount();
         if (transactionAmount.compareTo(minAmount) < 0) {
+            logger.error("Amount validation has failed, minimum amount for transaction is " + minAmount);
             throw new IllegalArgumentException("Minimum amount for this transaction is " + minAmount);
         }
         if (transactionAmount.compareTo(maxAmount) > 0) {
+            logger.error("Amount validation has failed, maximum amount for transaction is " + maxAmount);
             throw new IllegalArgumentException("Maximum amount for this transaction is " + maxAmount);
-        }
+        } else logger.info("Transaction amount has been validated");
 
 
     }
 
 
     private void validateCardExp(TransactionRequest transactionRequest) {
+        logger.info("Validating card credentials");
         boolean isCardValid = transactionRequest.getCardDetails().isValidExpirationDate();
         if (!isCardValid) {
             logger.error("Invalid card expiration date");
             throw new IllegalArgumentException("Invalid card expiration date");
-        }
+        } else logger.info("Card has been validated");
     }
 
-    private void handleInvalidProduct(TransactionRequest transactionRequest, User user) {
+    public void handleInvalidProduct(TransactionRequest transactionRequest, User user) {
         logger.error("Product not found. Handling invalid product.");
         Transaction transaction = transactionMapper.requestToTransaction(transactionRequest, user, null);
         transactionRepository.save(transaction);

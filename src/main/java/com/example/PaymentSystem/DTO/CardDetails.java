@@ -2,10 +2,7 @@ package com.example.PaymentSystem.DTO;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
 import java.time.YearMonth;
@@ -15,6 +12,7 @@ import java.time.format.DateTimeFormatter;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class CardDetails {
 
     @CreditCardNumber(message = "Not a valid Credit card")

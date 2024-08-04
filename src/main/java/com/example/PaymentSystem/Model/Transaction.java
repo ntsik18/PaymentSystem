@@ -2,6 +2,7 @@ package com.example.PaymentSystem.Model;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -20,10 +21,13 @@ public class Transaction {
     private BigDecimal amount;
     @Enumerated(EnumType.STRING)
     private PaymentMethod paymentMethod;
+    @NotNull
     @Enumerated(EnumType.STRING)
     private TransactionStatus status;
+    @NotNull
     private LocalDateTime transactionDate;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "userId", nullable = false)
     private User user;
